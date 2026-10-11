@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chilso Jewelers</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#3f7f8a;--dark:#111;--grey:#f1f1f1;--text:#222}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Poppins",system-ui,sans-serif;color:var(--text);line-height:1.6;background:#fff;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.container{width:min(1000px,92%);margin-inline:auto}
+h2{font-size:20px;font-weight:700;text-transform:uppercase;text-align:center;margin-bottom:26px}
+.btn{display:inline-block;background:var(--teal);color:#fff;padding:8px 22px;border-radius:20px;font-size:11px;font-weight:600;border:0;cursor:pointer}
+.btn.sm{padding:4px 16px;font-size:10px}
+.section{padding:50px 0}
+.grey{background:var(--grey)}
+
+.top{background:#fff;border-bottom:1px solid #e5e5e5}
+.top .container{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;flex-wrap:wrap}
+.logo{font-family:Georgia,serif;font-style:italic;font-size:26px;color:var(--teal)}
+.search{display:flex;flex:1;max-width:340px}
+.search input{flex:1;min-width:0;border:1px solid #ccc;padding:6px 10px;font:inherit;font-size:11px}
+.search button{background:var(--teal);color:#fff;border:0;padding:0 14px}
+.phone{font-size:11px}
+.nav{background:var(--teal)}
+.nav .container{display:flex;justify-content:center;gap:26px;padding:8px 0;font-size:10px;font-weight:600;text-transform:uppercase;color:#fff;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.nav .container::-webkit-scrollbar{display:none}
+
+.hero{background:var(--dark);color:#fff}
+.hero .container{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:300px}
+.hero-text{max-width:360px;padding:30px 0}
+.hero h1{font-size:26px;font-weight:500;line-height:1.3;margin-bottom:10px}
+.hero h1 b{font-weight:700}
+.hero p{font-size:11px;color:#bbb;margin-bottom:16px}
+.hero .pic{flex:1;max-width:340px;height:300px}
+
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pcard{border:1px solid #e3e3e3;border-radius:4px;text-align:center;padding-bottom:12px;background:#fff;overflow:hidden}
+.pcard .pic{height:130px;background:#cfe3e0}
+.pcard h3{font-size:11px;text-transform:uppercase;margin:10px 0 4px}
+.pcard p{font-size:10px;color:#888;padding:0 12px;margin-bottom:8px}
+
+.split{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;align-items:center}
+.split.rev{grid-template-columns:1.2fr 1fr}
+.split .pic{height:250px;border-radius:4px;overflow:hidden;background:#cfe3e0}
+.split h2{text-align:left;margin-bottom:14px}
+.split p{font-size:12px;color:#555;margin-bottom:16px}
+.frame{position:relative;padding:12px 0 0 12px}
+.frame::before{content:"";position:absolute;inset:0 12px 12px 0;background:#cfe2e5}
+.frame .pic{position:relative}
+
+.best{background:linear-gradient(135deg,#3f7f8a,#6d9ea5);color:#fff}
+.best h2{color:#fff}
+.bcard{background:#fff;color:var(--text);border-radius:8px;overflow:hidden;text-align:center;padding-bottom:10px}
+.bcard .pic{height:150px;background:#cfe3e0}
+.bcard h3{font-size:11px;text-transform:uppercase;margin:8px 0 2px}
+.bcard p{font-size:10px;color:#888;padding:0 10px}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;max-width:760px;margin-inline:auto}
+.quote{background:#fff;padding:18px;border-radius:24px 0 24px 0;border-left:3px solid var(--teal);border-bottom:3px solid var(--teal);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.who{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:11px;font-weight:600}
+.avatar{width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;background:#d8eaed}
+.stars{color:#f5b301;margin-left:auto;font-size:11px}
+.quote p{font-size:11px;color:#666}
+
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:760px;margin-inline:auto}
+.gallery .pic{height:130px;background:#cfe3e0}
+.gallery .tall{grid-row:span 2;height:268px}
+
+.news{background:var(--teal);color:#fff;text-align:center;padding:44px 0}
+.news h2{color:#fff;margin-bottom:8px}
+.news p{font-size:11px;opacity:.9;max-width:560px;margin:0 auto 16px}
+.news form{display:flex;justify-content:center;max-width:420px;margin-inline:auto}
+.news input{flex:1;min-width:0;padding:8px 12px;border:0;font:inherit;font-size:11px}
+.news button{background:#111;color:#fff;border:0;padding:0 18px;font-size:11px}
+
+.footer{padding:30px 0 10px;font-size:11px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr 1.3fr;gap:20px}
+.foot-grid>*{min-width:0;overflow-wrap:anywhere}
+.footer h4{font-size:11px;text-transform:uppercase;margin-bottom:8px}
+.footer a,.footer p{display:block;color:#555;margin-bottom:3px}
+.footer .logo{color:var(--teal)}
+.copy{text-align:center;color:#888;font-size:10px;margin-top:22px}
+
+@media(max-width:800px){.grid-4{grid-template-columns:repeat(2,1fr)}.foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.split,.split.rev{grid-template-columns:1fr}}
+@media(max-width:600px){.hero .container{flex-direction:column;text-align:center}.hero .pic{max-width:100%;width:100%}.grid-2{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}.gallery .tall{grid-row:auto;height:130px}.nav .container{justify-content:flex-start;padding-inline:4%}}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="container">
+<a href="#" class="logo">Chilso</a>
+<form class="search" onsubmit="return false"><input type="search" placeholder="Search"><button type="submit">&#128269;</button></form>
+<span class="phone">&#128222; 09050675863</span>
+</div></header>
+<nav class="nav"><div class="container">
+<a href="#">Home</a><a href="#product">Our Product</a><a href="#about">About</a><a href="#best">Best Seller</a><a href="#why">Why Choose Us</a><a href="#clients">Testimonial</a><a href="#gallery">Gallery</a><a href="#contact">Contact Us</a>
+</div></nav>
+
+<section class="hero"><div class="container">
+<div class="hero-text">
+<h1>WELCOME TO<br><b>CHILSO JEWELERS</b></h1>
+<p>Discover beautiful rings, necklaces, bracelets and earrings for every special moment. Find a piece you will treasure.</p>
+<a href="#product" class="btn">Shop Now</a>
+</div>
+<div class="pic"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=800&q=80" alt="Elegant gold jewelry"></div>
+</div></section>
+
+<section class="section" id="product"><div class="container">
+<h2>Our Product</h2>
+<div class="grid-4">
+<div class="pcard"><div class="pic"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80" alt="Gold ring"></div><h3>Rings Shop</h3><p>Beautiful rings to treasure for life.</p><a href="#" class="btn sm">Read More</a></div>
+<div class="pcard"><div class="pic"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" alt="Necklace"></div><h3>Necklaces Shop</h3><p>Elegant necklaces for every outfit.</p><a href="#" class="btn sm">Read More</a></div>
+<div class="pcard"><div class="pic"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=500&q=80" alt="Bracelet"></div><h3>Bracelets Shop</h3><p>Refined bracelets with lovely details.</p><a href="#" class="btn sm">Read More</a></div>
+<div class="pcard"><div class="pic"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" alt="Earrings"></div><h3>Ear Rings</h3><p>Finishing touches for your look.</p><a href="#" class="btn sm">Read More</a></div>
+</div>
+</div></section>
+
+<section class="section grey" id="about"><div class="container split">
+<div class="pic"><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=800&q=80" alt="Jewelry pieces"></div>
+<div>
+<h2>About Chilso Jewelers</h2>
+<p>At Chilso Jewelers, we believe the right piece of jewelry can make an ordinary moment feel extraordinary. Our collection celebrates personal style, meaningful gifts and the little details that make every occasion special.</p>
+<p>Whether you are shopping for yourself or for someone you love, we want you to find a piece worth keeping.</p>
+<a href="#contact" class="btn">Learn More</a>
+</div>
+</div></section>
+
+<section class="section best" id="best"><div class="container">
+<h2>Best Seller</h2>
+<div class="grid-4">
+<div class="bcard"><div class="pic"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80" alt="Classic gold ring"></div><h3>Classic Gold Ring</h3><p>A timeless addition to your collection.</p></div>
+<div class="bcard"><div class="pic"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" alt="Elegant necklace"></div><h3>Elegant Necklace</h3><p>A graceful piece for every occasion.</p></div>
+<div class="bcard"><div class="pic"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=500&q=80" alt="Classic bracelet"></div><h3>Classic Bracelet</h3><p>A refined accent for your wrist.</p></div>
+<div class="bcard"><div class="pic"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" alt="Statement earrings"></div><h3>Statement Earrings</h3><p>Make your everyday look memorable.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="why"><div class="container split rev">
+<div>
+<h2>Why Choose Us</h2>
+<p>We choose every piece with care, so you can shop with confidence. From timeless style to thoughtful gifts, Chilso Jewelers is here to help you celebrate life's beautiful moments.</p>
+<a href="#contact" class="btn">Learn More</a>
+</div>
+<div class="frame"><div class="pic"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=800&q=80" alt="Jewelry for special moments"></div></div>
+</div></section>
+
+<section class="section grey" id="clients"><div class="container">
+<h2>Our Clients Testimonial</h2>
+<div class="grid-2">
+<blockquote class="quote"><div class="who"><span class="avatar"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Chioma Ovat"></span>Chioma Ovat<span class="stars">★★★★★</span></div><p>I love how elegant the pieces look. The collection has lovely options for gifts and special occasions.</p></blockquote>
+<blockquote class="quote"><div class="who"><span class="avatar"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt="Trust Ovat"></span>Trust Ovat<span class="stars">★★★★★</span></div><p>The styles are beautiful and easy to pair with different outfits. I would happily buy from Chilso again.</p></blockquote>
+</div>
+</div></section>
+
+<section class="section" id="gallery"><div class="container">
+<h2>Gallery</h2>
+<div class="gallery">
+<div class="pic"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80" alt="Gold ring"></div>
+<div class="pic"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" alt="Earrings"></div>
+<div class="pic tall"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" alt="Necklace"></div>
+<div class="pic"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=500&q=80" alt="Bracelet"></div>
+<div class="pic tall"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=500&q=80" alt="Gold jewelry"></div>
+<div class="pic"><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=500&q=80" alt="Jewelry pieces"></div>
+<div class="pic"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80" alt="Ring"></div>
+</div>
+</div></section>
+
+<section class="news"><div class="container">
+<h2>Join Our Newsletter</h2>
+<p>Be the first to hear about new arrivals and special offers.</p>
+<form id="nl" onsubmit="return false"><input type="email" placeholder="Enter your email" aria-label="Email"><button type="submit" id="nlbtn">Subscribe</button></form>
+</div></section>
+
+<footer class="footer" id="contact"><div class="container">
+<div class="foot-grid">
+<div><a href="#" class="logo">Chilso</a></div>
+<div><h4>Quick Link</h4><a href="#">Home</a><a href="#product">Product</a><a href="#about">About</a><a href="#best">Best Seller</a></div>
+<div><h4>Important</h4><a href="#">Shipping</a><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a><a href="#">Returns</a></div>
+<div><h4>My Account</h4><a href="#">Sign Up</a><a href="#">Login</a><a href="#">Wishlist</a><a href="#">Cart</a></div>
+<div><h4>Contact Us</h4><p>Street No. 04, Calabar, Nigeria</p><p>09050675863</p><p>info@chilso.com</p></div>
+</div>
+<p class="copy">Copyright © 2026 Chilso Jewelers. All rights reserved. Photos: Unsplash</p>
+</div></footer>
+
+<script>
+document.getElementById("nl").addEventListener("submit",function(){
+  var b=document.getElementById("nlbtn");b.textContent="Thank you!";
+  setTimeout(function(){b.textContent="Subscribe";},2000);this.reset();
+});
+</script>
+
+</body>
+</html>
