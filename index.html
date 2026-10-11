@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chilso Jewelers | Timeless Elegance</title>
+<meta name="description" content="Discover beautiful rings, necklaces, bracelets and earrings at Chilso Jewelers. Find jewelry for every special moment.">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal: #397b78;
+  --teal-dark: #244f4e;
+  --gold: #c7a66a;
+  --cream: #f8f6f1;
+  --dark: #202725;
+  --muted: #777d79;
+  --border: #e7e4dc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Poppins, sans-serif;
+  color: var(--dark);
+  background: #fff;
+  line-height: 1.6;
+}
+
+a { text-decoration: none; color: inherit; }
+
+button, input { font: inherit; }
+
+img { max-width: 100%; display: block; }
+
+.container { width: 92%; max-width: 1150px; margin: auto; }
+
+.announcement {
+  background: var(--teal-dark);
+  color: white;
+  text-align: center;
+  padding: 9px;
+  font-size: 11px;
+  letter-spacing: .4px;
+}
+
+.header {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  color: var(--teal);
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.logo span { color: var(--gold); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.nav a:hover { color: var(--teal); }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.search {
+  width: 145px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 11px;
+  min-width: 0;
+}
+
+.cart {
+  border: 0;
+  background: var(--cream);
+  padding: 9px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+#cart-count { color: var(--teal); font-weight: 700; }
+
+.btn {
+  display: inline-block;
+  border: 1px solid var(--teal);
+  background: var(--teal);
+  color: white;
+  padding: 12px 25px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+}
+
+.btn-outline {
+  display: inline-block;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+  padding: 10px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.btn-outline:hover { background: var(--teal); color: white; }
+
+.hero { background: var(--cream); }
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 50px;
+  align-items: center;
+  min-height: 490px;
+  padding: 45px 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  color: var(--teal);
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 1.13;
+  margin: 18px 0;
+}
+
+.hero h1 span { color: var(--teal); }
+
+.hero-copy > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 420px;
+  margin-bottom: 25px;
+}
+
+.hero-image {
+  position: relative;
+  height: 400px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.image-label {
+  position: absolute;
+  left: -20px;
+  bottom: 24px;
+  background: white;
+  padding: 18px 24px;
+  box-shadow: 0 5px 25px #00000012;
+}
+
+.image-label strong {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+}
+
+.image-label small { color: var(--muted); font-size: 10px; }
+
+.section { padding: 75px 0; }
+
+.section.cream { background: var(--cream); }
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-heading .eyebrow { margin-bottom: 8px; }
+
+.section-heading h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.category {
+  text-align: center;
+  background: white;
+  padding-bottom: 18px;
+  border: 1px solid var(--border);
+  transition: .25s;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #0000000d;
+}
+
+.category img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+}
+
+.category h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+  font-weight: 500;
+  margin: 14px 0 3px;
+}
+
+.category p { font-size: 10px; color: var(--muted); }
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product {
+  border: 1px solid var(--border);
+  background: white;
+  padding: 10px;
+  transition: .25s;
+}
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #0000000c;
+}
+
+.product img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: var(--cream);
+}
+
+.product-info { padding: 12px 5px 5px; }
+
+.stars { color: var(--gold); font-size: 12px; letter-spacing: 2px; }
+
+.product h3 { font-size: 12px; font-weight: 600; margin: 6px 0; }
+
+.product .description { color: var(--muted); font-size: 10px; }
+
+.price {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--teal-dark);
+  margin: 8px 0 12px;
+}
+
+.product .btn, .product .btn-outline {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.promo { background: var(--teal-dark); color: white; }
+
+.promo-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+}
+
+.promo img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+.promo .eyebrow { color: var(--gold); }
+
+.promo h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 4vw, 47px);
+  line-height: 1.15;
+  font-weight: 500;
+  margin: 14px 0;
+}
+
+.promo p:not(.eyebrow) {
+  color: #d7e0dc;
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+.promo .btn { background: var(--gold); border-color: var(--gold); color: #172522; }
+
+.bestsellers { background: var(--cream); }
+
+.bestsellers .product { background: white; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.about-image { height: 410px; }
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-copy h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 12px 0 18px;
+}
+
+.about-copy p { color: var(--muted); font-size: 12px; margin-bottom: 15px; }
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 28px;
+}
+
+.benefit { border-top: 1px solid var(--border); padding-top: 15px; }
+
+.benefit strong { display: block; font-size: 12px; margin-bottom: 5px; }
+
+.benefit span { color: var(--muted); font-size: 10px; }
+
+.testimonials { background: var(--cream); }
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review {
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--border);
+}
+
+.quote-mark {
+  font-family: Georgia, serif;
+  color: var(--gold);
+  font-size: 36px;
+  line-height: 1;
+}
+
+.review > p { font-size: 11px; color: var(--muted); margin: 12px 0 20px; }
+
+.reviewer { display: flex; align-items: center; gap: 10px; }
+
+.reviewer img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.reviewer strong { display: block; font-size: 11px; }
+
+.reviewer small { font-size: 9px; color: var(--muted); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: .3s;
+}
+
+.gallery img:hover { opacity: .8; }
+
+.newsletter {
+  background: var(--teal);
+  color: white;
+  text-align: center;
+  padding: 55px 0;
+}
+
+.newsletter h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 33px;
+  font-weight: 500;
+}
+
+.newsletter p { font-size: 11px; margin: 10px 0 20px; color: #e5f0ee; }
+
+.newsletter form {
+  display: flex;
+  max-width: 430px;
+  margin: auto;
+  gap: 7px;
+}
+
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 13px;
+  font-size: 11px;
+}
+
+.newsletter button {
+  border: 0;
+  background: var(--dark);
+  color: white;
+  padding: 0 20px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.footer { background: #172725; color: white; padding: 50px 0 20px; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 35px;
+}
+
+.footer .logo { color: white; }
+
+.footer h3 { font-size: 12px; margin-bottom: 15px; }
+
+.footer p, .footer a:not(.logo) {
+  display: block;
+  color: #c0cfca;
+  font-size: 10px;
+  margin-bottom: 9px;
+  overflow-wrap: anywhere;
+}
+
+.footer a:hover { color: var(--gold); }
+
+.footer-bottom {
+  border-top: 1px solid #344742;
+  padding-top: 18px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  color: #aabbb5;
+  font-size: 9px;
+}
+
+#message { font-size: 11px; margin-top: 12px; }
+
+@media(max-width: 950px) {
+  .header-inner { flex-wrap: wrap; justify-content: center; }
+  .nav { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; }
+  .categories, .products { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery img { height: 240px; }
+}
+
+@media(max-width: 600px) {
+  .header-inner { gap: 12px; }
+  .logo { font-size: 25px; }
+  .nav { gap: 14px; font-size: 10px; }
+  .header-right { width: 100%; justify-content: center; }
+  .hero-inner { grid-template-columns: 1fr; gap: 28px; padding: 35px 0; }
+  .hero-image { height: 300px; }
+  .image-label { left: 8px; }
+  .section { padding: 48px 0; }
+  .categories { gap: 12px; }
+  .category img { height: 155px; }
+  .products { gap: 12px; }
+  .product img { height: 175px; }
+  .promo-inner, .about-grid { grid-template-columns: 1fr; gap: 25px; }
+  .promo img { height: 260px; }
+  .about-image { height: 300px; }
+  .about-copy h2 { font-size: 31px; }
+  .benefits { gap: 12px; }
+  .benefit strong { font-size: 10px; }
+  .benefit span { font-size: 9px; }
+  .reviews { grid-template-columns: 1fr; }
+  .gallery { gap: 8px; }
+  .gallery img { height: 170px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+  .newsletter h2 { font-size: 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+  Complimentary delivery on orders over ₦100,000 · Discover timeless elegance
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#home" class="logo">Chilso <span>Jewelers</span></a>
+
+    <nav class="nav">
+      <a href="#home">Home</a>
+      <a href="#categories">Collections</a>
+      <a href="#products">Our Products</a>
+      <a href="#about">Our Story</a>
+      <a href="#bestsellers">Best Sellers</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-right">
+      <input class="search" id="search" type="search" placeholder="Find jewelry..." aria-label="Search jewelry">
+      <a href="#products" class="cart">Bag (<span id="cart-count">0</span>)</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Jewelry made memorable</p>
+      <h1>Beauty in Every <span>Detail.</span></h1>
+      <p>Discover jewelry that celebrates your individuality. From elegant everyday pieces to unforgettable gifts, find something special at Chilso Jewelers.</p>
+      <a href="#products" class="btn">Explore Collection →</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=85" alt="Elegant gold jewelry collection">
+      <div class="image-label">
+        <strong>Timeless Elegance</strong>
+        <small>Jewelry for life's special moments</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Find your favourite</p>
+      <h2>Explore Our Collections</h2>
+      <p>Thoughtfully selected pieces for every occasion.</p>
+    </div>
+
+    <div class="categories">
+      <a href="#products" class="category">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=85" alt="Gold and diamond rings">
+        <h3>Rings</h3>
+        <p>Beautiful pieces to treasure</p>
+      </a>
+
+      <a href="#products" class="category">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=85" alt="Elegant necklaces">
+        <h3>Necklaces</h3>
+        <p>Elegance around your neck</p>
+      </a>
+
+      <a href="#products" class="category">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=85" alt="Stylish bracelets">
+        <h3>Bracelets</h3>
+        <p>Details that make a difference</p>
+      </a>
+
+      <a href="#products" class="category">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=85" alt="Elegant earrings">
+        <h3>Earrings</h3>
+        <p>Finishing touches for your look</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section cream" id="products">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Handpicked favourites</p>
+      <h2>Our Products</h2>
+      <p>Explore beautiful jewelry for yourself and the people you love.</p>
+    </div>
+
+    <div class="products" id="product-list">
+
+      <article class="product" data-name="gold ring">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=85" alt="Elegant gold ring">
+        <div class="product-info">
+          <div class="stars">★★★★★</div>
+          <h3>Classic Gold Ring</h3>
+          <p class="description">A timeless addition to your collection.</p>
+          <div class="price">₦18,500</div>
+          <button class="btn add-cart" data-name="Classic Gold Ring">Add to Bag</button>
+        </div>
+      </article>
+
+      <article class="product" data-name="gold necklace">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=85" alt="Gold necklace">
+        <div class="product-info">
+          <div class="stars">★★★★★</div>
+          <h3>Elegant Necklace</h3>
+          <p class="description">A graceful piece for every occasion.</p>
+          <div class="price">₦25,000</div>
+          <button class="btn add-cart" data-name="Elegant Necklace">Add to Bag</button>
+        </div>
+      </article>
+
+      <article class="product" data-name="bracelet gold">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=85" alt="Decorative bracelet">
+        <div class="product-info">
+          <div class="stars">★★★★★</div>
+          <h3>Classic Bracelet</h3>
+          <p class="description">A refined accent for your wrist.</p>
+          <div class="price">₦15,000</div>
+          <button class="btn add-cart" data-name="Classic Bracelet">Add to Bag</button>
+        </div>
+      </article>
+
+      <article class="product" data-name="fashion earrings">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=85" alt="Fashion earrings">
+        <div class="product-info">
+          <div class="stars">★★★★★</div>
+          <h3>Statement Earrings</h3>
+          <p class="description">Make your everyday look memorable.</p>
+          <div class="price">₦12,500</div>
+          <button class="btn add-cart" data-name="Statement Earrings">Add to Bag</button>
+        </div>
+      </article>
+
+    </div>
+
+    <p id="no-results" style="display:none;text-align:center;margin-top:25px;">No matching jewelry was found.</p>
+  </div>
+</section>
+
+<section class="promo" id="bestsellers">
+  <div class="container promo-inner">
+    <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85" alt="Beautiful jewelry arranged for a special occasion">
+
+    <div>
+      <p class="eyebrow">The perfect gift</p>
+      <h2>Little Details.<br>Lasting Memories.</h2>
+      <p>Celebrate birthdays, anniversaries and life's beautiful moments with jewelry chosen with care.</p>
+      <a href="#products" class="btn">Shop Best Sellers →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=900&q=85" alt="Beautifully arranged jewelry pieces">
+    </div>
+
+    <div class="about-copy">
+      <p class="eyebrow">Our story</p>
+      <h2>About Chilso Jewelers</h2>
+      <p>At Chilso Jewelers, we believe that the right piece of jewelry can make an ordinary moment feel extraordinary.</p>
+      <p>Our collection celebrates personal style, meaningful gifts and the little details that make every occasion special. Whether you are shopping for yourself or someone you love, we want you to find a piece worth keeping.</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+
+      <div class="benefits">
+        <div class="benefit">
+          <strong>Timeless Style</strong>
+          <span>Pieces for every occasion</span>
+        </div>
+        <div class="benefit">
+          <strong>Gift Worthy</strong>
+          <span>Thoughtful choices</span>
+        </div>
+        <div class="benefit">
+          <strong>Personal Touch</strong>
+          <span>Service with care</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Kind words</p>
+      <h2>Customer Experiences</h2>
+      <p>Beautiful jewelry is even better when it brings joy.</p>
+    </div>
+
+    <div class="reviews">
+      <article class="review">
+        <div class="quote-mark">“</div>
+        <div class="stars">★★★★★</div>
+        <p>I love how elegant the pieces look. The collection has lovely options for gifts and special occasions.</p>
+        <div class="reviewer">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Customer portrait">
+          <div><strong>Amara</strong><small>Jewelry lover</small></div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="quote-mark">“</div>
+        <div class="stars">★★★★★</div>
+        <p>The styles are beautiful and easy to pair with different outfits. I would happily explore more of the collection.</p>
+        <div class="reviewer">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Customer portrait">
+          <div><strong>Daniel</strong><small>Happy shopper</small></div>
+        </div>
+      </article>
+
+      <article class="review">
+        <div class="quote-mark">“</div>
+        <div class="stars">★★★★★</div>
+        <p>There is something for different styles and occasions. I especially love the simple, elegant designs.</p>
+        <div class="reviewer">
+          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt="Customer portrait">
+          <div><strong>Faith</strong><small>Jewelry lover</small></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">A closer look</p>
+      <h2>Jewelry Gallery</h2>
